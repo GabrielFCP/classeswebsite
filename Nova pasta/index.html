@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | Modern Landing Page (Brevo Integrated)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg: #ffffff;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --card-bg: #f9fafb;
+            --error: #ef4444;
+            --success: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-dark); line-height: 1.6; scroll-behavior: smooth; }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; position: sticky; top: 0;
+            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); z-index: 1000;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); letter-spacing: -1px; }
+
+        /* Hero */
+        header { padding: 120px 10% 80px; text-align: center; max-width: 900px; margin: 0 auto; }
+        header h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 24px; color: #111827; }
+        header p { font-size: 1.25rem; color: var(--text-light); margin-bottom: 32px; }
+
+        /* Brevo Specific Form Styling */
+        .contact-section { padding: 80px 10%; background: #f3f4f6; }
+        .sib-form { display: flex; justify-content: center; }
+        
+        #sib-form-container {
+            background: white; padding: 48px; border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            width: 100%; max-width: 480px;
+        }
+
+        .sib-form-block { margin-bottom: 20px; }
+        .sib-form-block label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+        
+        .sib-input, .sib-form-block textarea {
+            width: 100%; padding: 12px 16px; border: 1px solid #d1d5db;
+            border-radius: 8px; font-size: 1rem; transition: all 0.2s;
+        }
+
+        .sib-input:focus { outline: none; border-color: var(--primary); ring: 2px solid var(--primary); }
+
+        .sib-form-block__button {
+            width: 100%; padding: 16px; background: var(--primary); color: white;
+            border: none; border-radius: 8px; font-size: 1rem; font-weight: 700;
+            cursor: pointer; transition: 0.3s; margin-top: 10px;
+        }
+
+        .sib-form-block__button:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+        /* Brevo Free Tier Logo Styling */
+        .brevo-branding {
+            margin-top: 20px; text-align: center; font-size: 0.75rem; color: #9ca3af;
+        }
+        .brevo-branding a { color: var(--primary); text-decoration: none; font-weight: 600; }
+
+        /* Success/Error States (Hidden by default) */
+        .sib-form-message-panel {
+            padding: 12px; border-radius: 8px; margin-bottom: 20px; display: none;
+            font-size: 0.875rem; font-weight: 500;
+        }
+        .success-msg { background: #ecfdf5; color: var(--success); border: 1px solid #10b981; }
+
+        footer { padding: 60px 10% 30px; text-align: center; color: var(--text-light); border-top: 1px solid #eee; }
+
+        @media (max-width: 768px) { header h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">NEXUS</div>
+    </nav>
+
+    <header>
+        <h1>Scale your business with automated growth.</h1>
+        <p>Join 10,000+ teams using Nexus to streamline their customer communication and sales funnels.</p>
+    </header>
+
+    <section class="contact-section" id="contact">
+        <div class="sib-form">
+            <div id="sib-form-container">
+                <div id="success-message" class="sib-form-message-panel success-msg">
+                    Your subscription has been successful! Check your email to confirm.
+                </div>
+
+                <form id="sib-form" method="POST" action="https://your-brevo-id.sibforms.com/serve/...">
+                    <div class="sib-form-block">
+                        <label for="FIRSTNAME">First Name</label>
+                        <input class="sib-input" type="text" id="FIRSTNAME" name="FIRSTNAME" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="sib-form-block">
+                        <label for="EMAIL">Email Address</label>
+                        <input class="sib-input" type="email" id="EMAIL" name="EMAIL" placeholder="email@company.com" required>
+                    </div>
+
+                    <div class="sib-form-block">
+                        <div style="display: flex; align-items: flex-start; gap: 10px;">
+                            <input type="checkbox" id="OPT_IN" name="OPT_IN" required style="margin-top: 5px;">
+                            <label for="OPT_IN" style="font-weight: 400; font-size: 0.8rem; color: var(--text-light);">
+                                I agree to receive your newsletters and accept the data privacy statement.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="sib-form-block__button" type="submit">Get Early Access</button>
+                    
+                    <div class="brevo-branding">
+                        Powered by <a href="https://www.brevo.com" target="_blank">Brevo</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Nexus Labs. Designed for performance.
+    </footer>
+
+    <script>
+        // Simple simulation of form submission behavior
+        document.getElementById('sib-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
